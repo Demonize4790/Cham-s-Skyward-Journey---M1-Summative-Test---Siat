@@ -290,10 +290,17 @@ function hitBomb(player, bomb) {
     // Remove player from the map
     player.setY(game.config.height + 100); 
    
+    // Dark overlay 
+    const overlay = this.add.graphics();
+    overlay.fillStyle(0x000000, 0.74); // Black color with 74% opacity
+    overlay.fillRect(0, 0, game.config.width, game.config.height);
+
+
     // Display "Game Over" message on the screen
     gameOverText = this.add.text(game.config.width / 2, game.config.height / 2, 'Game Over', {
         fontSize: '64px',
-        fill: '#f00'
+        fill: '#f00',
+        fontStyle: 'bold' 
         
     }).setOrigin(0.5);
 
